@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../Pages/Home/Home";
 import useInputState from "../../useInputHook";
 
@@ -7,6 +7,15 @@ const Banner = () => {
   const data = useContext(DataContext);
   const textState = useInputState("");
   console.log(textState);
+
+  useEffect(()=>{
+  const getInput = document.getElementById('textInput') ;
+  if (getInput) {
+    getInput.focus()
+  }
+
+
+  },[])
 
   //   form submit handle
   const clickSubmit = (e) => {
@@ -41,7 +50,7 @@ const Banner = () => {
 
               <input
                 type="submit"
-                value="submit"
+                value="Search"
                 className="btn btn-primary "
               />
             </form>
